@@ -12,7 +12,7 @@ class UpdateUserAvatarMutationResolver extends AbstractMutationResolver
     public function savePicture($user_id, $delete_source = false)
     {
         // Avatar
-        $gd_fileupload_userphoto = GD_FileUpload_UserPhotoFactory::getInstance();
+        $gd_fileupload_userphoto = \GD_FileUpload_UserPhotoFactory::getInstance();
         $gd_fileupload_userphoto->savePicture($user_id, $delete_source);
     }
 

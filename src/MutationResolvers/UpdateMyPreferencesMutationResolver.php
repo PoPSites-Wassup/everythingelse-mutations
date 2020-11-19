@@ -6,17 +6,15 @@ namespace PoPSitesWassup\EverythingElseMutations\MutationResolvers;
 
 use PoP\ComponentModel\MutationResolvers\AbstractMutationResolver;
 
-class FileUploadPictureMutationResolver extends AbstractMutationResolver
+class UpdateMyPreferencesMutationResolver extends AbstractMutationResolver
 {
     /**
      * @return mixed
      */
     public function execute(array $form_data)
     {
-        // Copy the images to the fileupload-userphoto upload folder
         $user_id = $form_data['user_id'];
-        $gd_fileupload_userphoto = \GD_FileUpload_UserPhotoFactory::getInstance();
-        $gd_fileupload_userphoto->copyPicture($user_id);
+        \PoPSchema\UserMeta\Utils::updateUserMeta($user_id, GD_METAKEY_PROFILE_USERPREFERENCES, $form_data['userPreferences']);
         return $user_id;
     }
 }
