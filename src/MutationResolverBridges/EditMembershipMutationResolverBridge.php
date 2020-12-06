@@ -26,7 +26,7 @@ class EditMembershipMutationResolverBridge extends AbstractComponentMutationReso
         $tags = $moduleprocessor_manager->getProcessor([\GD_URE_Module_Processor_ProfileMultiSelectFormInputs::class, \GD_URE_Module_Processor_ProfileMultiSelectFormInputs::MODULE_URE_FORMINPUT_MEMBERTAGS])->getValue([\GD_URE_Module_Processor_ProfileMultiSelectFormInputs::class, \GD_URE_Module_Processor_ProfileMultiSelectFormInputs::MODULE_URE_FORMINPUT_MEMBERTAGS]);
         $form_data = array(
             'community' => $community,
-            'user_id' => $_REQUEST[POP_INPUTNAME_USERID],
+            'user_id' => $_REQUEST[POP_INPUTNAME_USERID] ?? null,
             // 'nonce' => $_REQUEST[POP_INPUTNAME_NONCE],
             'status' => trim($moduleprocessor_manager->getProcessor([\GD_URE_Module_Processor_SelectFormInputs::class, \GD_URE_Module_Processor_SelectFormInputs::MODULE_URE_FORMINPUT_MEMBERSTATUS])->getValue([\GD_URE_Module_Processor_SelectFormInputs::class, \GD_URE_Module_Processor_SelectFormInputs::MODULE_URE_FORMINPUT_MEMBERSTATUS])),
             'privileges' => $privileges ?? array(),
