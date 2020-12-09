@@ -15,7 +15,7 @@ class CreateUpdateWithCommunityOrganizationProfileMutationResolver extends Creat
 
         // Is community?
         $cmsuserrolesapi = \PoPSchema\UserRoles\FunctionAPIFactory::getInstance();
-        if ($form_data['is_community']) {
+        if ($form_data['is_community'] ?? null) {
             $cmsuserrolesapi->addRoleToUser($user_id, GD_URE_ROLE_COMMUNITY);
         } else {
             $cmsuserrolesapi->removeRoleFromUser($user_id, GD_URE_ROLE_COMMUNITY);
